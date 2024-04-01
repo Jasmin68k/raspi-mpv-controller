@@ -15,7 +15,7 @@
 # bash exits immediately, when program in screen session ends, so the screen sessions closes itself automatically. If that is not wanted, add "; exec bash" at the end.
 # You can then exit the screen session with 'exit'.
 screen -dmS mpv-oled bash -c "source /path/to/mpv-control/bin/activate ; python /path/to/mpv-oled-control.py"
-screen -dmS mpv-rotary bash -c "python /path/to/mpv-rotary-control.py"
+screen -dmS mpv-rotary bash -c "source /path/to/mpv-control2/bin/activate ; python /path/to/mpv-rotary-control.py"
 screen -dmS mpv-1 bash -c "mpv --input-ipc-server=/tmp/mpv-1 --script-opts=volumeid=YOURID1 --volume=$(cat /path/to/mpv_volume_YOURID1.txt) --mute=$(cat /path/to/mpv_mute_YOURID1.txt) /path/to/mediafile"
 screen -dmS mpv-2 bash -c "mpv --input-ipc-server=/tmp/mpv-2 --script-opts=volumeid=YOURID2 --volume=$(cat /path/to/mpv_volume_YOURID2.txt) --mute=$(cat /path/to/mpv_mute_YOURID2.txt) /path/to/mediafile"
 screen -dmS mpv-3 bash -c "mpv --input-ipc-server=/tmp/mpv-3 --script-opts=volumeid=YOURID3 --volume=$(cat /path/to/mpv_volume_YOURID3.txt) --mute=$(cat /path/to/mpv_mute_YOURID3.txt) /path/to/mediafile"

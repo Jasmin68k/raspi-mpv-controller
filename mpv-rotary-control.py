@@ -1,5 +1,21 @@
 # Configure rotary encoder pin assignments and mpv-socket paths in main function
 
+# To be compatible with Raspberry Pi 5 and kernels >=6.6.0 we're using the
+# rpi-lgpio package, since in those cases raw RPi.GPIO is broken.
+
+# Remove python3-rpi.gpio:
+# sudo apt-get purge python3-rpi.gpio
+# Requires Python package rpi-lgpio
+# On the Raspberry Pi, create a virtual Python environment like this:
+# python -m venv /path/to/mpv-control2 --system-site-packages
+# Activate virtual environment:
+# source /path/to/mpv-control2/bin/activate
+# Install package:
+# pip install rpi-lgpio
+
+# To run this script
+# activate virtual Python environment:
+# source /path/to/mpv-control2/bin/activate
 # Run script:
 # python /path/to/mpv-rotary-control.py
 # Exit with CTRL-C
