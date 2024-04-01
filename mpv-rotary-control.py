@@ -2,6 +2,7 @@
 
 # Run script:
 # python /path/to/mpv-rotary-control.py
+# Exit with CTRL-C
 
 import RPi.GPIO as GPIO
 import socket
