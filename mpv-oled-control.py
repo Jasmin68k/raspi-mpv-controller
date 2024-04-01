@@ -1,6 +1,6 @@
 # Enable I2C in raspi-config
 
-# Set higher baudrate in /boot/firmware.config.txt for higher fps
+# Set higher baudrate in /boot/firmware/config.txt for higher fps
 # Find the line containing “dtparam=i2c_arm=on”.
 # Add “,i2c_arm_baudrate=400000” where 400000 is the new speed (400 Kbit/s). Note the comma in the beginning.
 # This should give you a line looking like:
@@ -24,14 +24,14 @@
 # On the Raspberry Pi, create a virtual Python environment like this:
 # python -m venv /path/to/mpv-control
 # Activate virtual environment:
-# source /path/to/bin/mpv-control/activate
+# source /path/to/mpv-control/bin/activate
 # Install packages:
 # pip install luma.oled pillow
 # This collects all other needed packages and installs them.
 
 # To run this script
 # activate virtual Python environment:
-# source /path/to/bin/mpv-control/activate
+# source /path/to/mpv-control/bin/activate
 # Run script:
 # python /path/to/mpv-oled-control.py
 # Exit with CTRL-C
