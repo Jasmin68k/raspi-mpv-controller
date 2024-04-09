@@ -6,16 +6,10 @@
 # Remove python3-rpi.gpio:
 # sudo apt-get purge python3-rpi.gpio
 # Requires Python package rpi-lgpio
-# On the Raspberry Pi, create a virtual Python environment like this:
-# python -m venv /path/to/mpv-control2 --system-site-packages
-# Activate virtual environment:
-# source /path/to/mpv-control2/bin/activate
-# Install package:
-# pip install rpi-lgpio
+# Install python3-rpi-lgpio:
+# sudo apt-get install python3-rpi-lgpio
 
 # To run this script
-# activate virtual Python environment:
-# source /path/to/mpv-control2/bin/activate
 # Run script:
 # python /path/to/mpv-rotary-control.py
 # Exit with CTRL-C
