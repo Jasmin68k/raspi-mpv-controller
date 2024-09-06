@@ -69,9 +69,9 @@ if __name__ == "__main__":
         # clk, dt and sw GPIO #s.
         # Note that GPIO #s != pin #s on Raspberry Pi.
         # Used here:
-        # clk: GPIO 24, 23, 25 = pins 18, 13, 37
-        # dt: GPIO 23, 17, 22 = pins 16, 11, 31
-        # sw: GPIO 26, 6, 16 = pins 22, 15, 36
+        # clk: GPIO 24, 27, 26 = pins 18, 13, 37
+        # dt: GPIO 23, 17, 6 = pins 16, 11, 31
+        # sw: GPIO 25, 22, 16 = pins 22, 15, 36
         # For ground (GND) you can use f. e. pins 14, 9, 34.
         # For voltage most rotary encoders work with 5V or 3.3V.
         # F. e. 5V pins 2, 4 - 3.3V pin 17
