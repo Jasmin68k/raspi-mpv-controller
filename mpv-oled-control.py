@@ -1,11 +1,15 @@
 # Enable I2C in raspi-config
+# This enables I2C on bus 1.
+
+# Connect your display's SDA and SCL to GPIO 2 and 3 (pins 3 and 5).
+# Connect your display's VCC and GND (f. e. pin 1 for 3.3V and pin 6 for GND).
 
 # Set higher baudrate in /boot/firmware/config.txt for higher fps
 # Find the line containing “dtparam=i2c_arm=on”.
 # Add “,i2c_arm_baudrate=400000” where 400000 is the new speed (400 Kbit/s). Note the comma in the beginning.
 # This should give you a line looking like:
 # dtparam=i2c_arm=on,i2c_arm_baudrate=400000
-# For comparision, default baudrate is only 100 KBit/s.
+# For comparison, default baudrate is only 100 KBit/s.
 
 # Get your OLED display's device address using i2cdetect from i2c-tools package:
 # i2cdetect -y 1
@@ -35,6 +39,24 @@
 # Run script:
 # python /path/to/mpv-oled-control.py
 # Exit with CTRL-C
+
+# Notes:
+
+# It is also possible to use other GPIO pins for SDA and SCL.
+# This I2C bus will be bit-banged (software-driven).
+# In order to use this, you need to add
+# dtoverlay=i2c-gpio,bus=3,i2c_gpio_delay_us=1,i2c_gpio_sda=7,i2c_gpio_scl=8,baudrate=400000
+# to /boot/firmware/config.txt replacing bus number and gpio_pins as needed.
+# Do not use bus 0 and 2, those are reserved.
+# Should you add several i2c buses,
+# you need to add them with bus numbers in descending order.
+# For detecting your display's device address, replace "1" in the i2cdetect command above
+# with your chosen bus number.
+#
+# Several I2C devices can be used on the same bus, if they have different device addresses.
+# They can be connected in parallel or daisy-chained.
+# If you have several I2C devices with the same device address,
+# you can put them on separate buses as described above.
 
 import threading
 import socket
