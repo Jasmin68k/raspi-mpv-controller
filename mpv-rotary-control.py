@@ -14,6 +14,13 @@
 # python /path/to/mpv-rotary-control.py
 # Exit with CTRL-C
 
+# For very old Raspberry Pi models, we need to fake the revision number for rpi-lgpio.
+# See https://github.com/waveform80/rpi-lgpio/issues/6 for more info.
+# If you get an error (NotImplementedError) running this script,
+# uncomment the following two lines and maybe adapt the revision number to a compatible model.
+#import os
+#os.environ['RPI_LGPIO_REVISION'] = 'a01041'
+
 import RPi.GPIO as GPIO
 import socket
 import json
