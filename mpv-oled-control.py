@@ -48,10 +48,12 @@
 # dtoverlay=i2c-gpio,bus=3,i2c_gpio_delay_us=1,i2c_gpio_sda=7,i2c_gpio_scl=8,baudrate=400000
 # to /boot/firmware/config.txt replacing bus number and gpio_pins as needed.
 # Do not use bus 0 and 2, those are reserved.
+#
 # Should you add several i2c buses,
 # you need to add them with bus numbers in descending order.
 # For detecting your display's device address, replace "1" in the i2cdetect command above
-# with your chosen bus number.
+# with your chosen bus number. If not using the default bus number 1, you need to set the bus number
+# in addition to the device address in the code below.
 #
 # Several I2C devices can be used on the same bus, if they have different device addresses.
 # They can be connected in parallel or daisy-chained.
@@ -75,7 +77,7 @@ font_size = 21
 font = ImageFont.truetype("/path/to/hvb_____.ttf", font_size)
 #example: font = ImageFont.truetype("/home/USER/.local/share/fonts/hvb_____.ttf", font_size)
 
-# Set your OLED display's device address here.
+# Set your OLED display's device address (and bus number, if not using the default) here.
 serial = i2c(port=1, address=0x3c)
 # Set correct device driver for your OLED display
 device = sh1106(serial)
