@@ -18,7 +18,7 @@
 # Set correct device driver for your OLED display
 # in the code below depending on which driver IC your display has.
 
-# Configure MPV socket paths in main function below.
+# Configure MPV socket paths in main function and set up an identical number of entries in mpv_states below.
 # Run each MPV instance with --input-ipc-server=/path/to/socket
 # Here: /tmp/mpv-1, /tmp-mpv-2 or /tmp/mpv-3 as configured below.
 

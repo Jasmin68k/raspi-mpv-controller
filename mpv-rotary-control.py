@@ -75,6 +75,13 @@ if __name__ == "__main__":
         # For ground (GND) you can use f. e. pins 14, 9, 34.
         # For voltage most rotary encoders work with 5V or 3.3V.
         # F. e. 5V pins 2, 4 - 3.3V pin 17
+        # Attention: The GPIO pins are rated for 3.3V and are officially not 5V tolerant,
+        # although the little current from the rotary encoders will most likely do no harm,
+        # even when using 5V (proceed at your own risk).
+        # To be on the safe side, either use 3.3V for the rotary encoders or, when using 5V,
+        # use a resistor divider or level shifter.
+        # Note: You can wire up several rotary encoders to one 5V/3.3V and one ground pin
+        # in parallel.
         encoders = [
             RotaryEncoder("Rotary encoder 1", '/tmp/mpv-1', 24, 23, 25),
             RotaryEncoder("Rotary encoder 2", '/tmp/mpv-2', 27, 17, 22),
