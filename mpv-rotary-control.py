@@ -1,4 +1,5 @@
 # Configure rotary encoder pin assignments and mpv-socket paths in main function
+# Configure internal/external pull-up resistors in setup function below
 
 # To be compatible with Raspberry Pi 5 and kernels >=6.6.0 we're using the
 # rpi-lgpio package, since in those cases raw RPi.GPIO is broken.
@@ -55,9 +56,17 @@ class RotaryEncoder:
         print(f"'{self.encoder_name}' is active on socket: {self.socket_path}")
 
     def setup(self):
-        GPIO.setup(self.clk_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-        GPIO.setup(self.dt_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-        GPIO.setup(self.sw_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)  # Pull-up resistor
+        # Use this, if your rotary encoder (module) has built-in pull-up resistors or you have wired up pull-up resistors manually.
+        # We are not using Raspberry Pi's internal pull-up resistors.
+        GPIO.setup(self.clk_pin, GPIO.IN)
+        GPIO.setup(self.dt_pin, GPIO.IN)
+        GPIO.setup(self.sw_pin, GPIO.IN)
+        # Use this, if using a rotary encoder (module) without pull-up resistors and you have not wired up pull-up resistors manually.
+        # We need to use Raspberry Pi's internal pull-up resistors.
+        # GPIO.setup(self.clk_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+        # GPIO.setup(self.dt_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+        # GPIO.setup(self.sw_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
         # bounce delay on rotation usually not needed, add otherwise
         GPIO.add_event_detect(self.clk_pin, GPIO.BOTH, callback=self.rotary_interrupt)
         # bounce delay for push button to prevent erroneous detection of multiple button presses
