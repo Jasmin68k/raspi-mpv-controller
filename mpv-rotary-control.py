@@ -89,8 +89,7 @@ if __name__ == "__main__":
         # even when using 5V (proceed at your own risk).
         # To be on the safe side, either use 3.3V for the rotary encoders or, when using 5V,
         # use a resistor divider or level shifter.
-        # Note: You can wire up several rotary encoders to one 5V/3.3V and one ground pin
-        # in parallel.
+        # Note: You can wire up several rotary encoders to one 5V/3.3V in parallel.
         encoders = [
             RotaryEncoder("Rotary encoder 1", '/tmp/mpv-1', 24, 23, 25),
             RotaryEncoder("Rotary encoder 2", '/tmp/mpv-2', 27, 17, 22),
